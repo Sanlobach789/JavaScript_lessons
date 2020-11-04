@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    // var a = 1, b = 1, c, d;
+    // c = ++a; alert(c);           // 2
+    // d = b++; alert(d);           // 1
+    // c = (2 + ++a); alert(c);      // 5
+    // d = (2 + b++); alert(d);      // 4
+    // alert(a);                    // 3
+    // alert(b);                    // 3
+
+    // Задание 2
+    {
+        let a = 2;
+        let x = 1 + (a *= 2);
+        alert('Задание 2 ответ: ' +x);
+    }
+
+    // Задание 3
+    {
+        let a = -5;
+        let b = -3;
+
+        if (a >= 0 && b >= 0) {
+            alert("Задание 3 ответ " +(a-b));
+        }
+        else if (a < 0 && b < 0) {
+            alert("Задание 3 ответ " +(a*b));
+        }
+        else {
+            alert("Задание 3 ответ " +(a+b));
+        }
+    }
+
+
+    // Задание 4 (Не совсем понял как тут оптимально можно использовать именно switch...)
+    {
+        let a = 10;
+        switch (a) {
+            case 0:
+                alert("0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 1:
+                alert("1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 2:
+                alert("2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 3:
+                alert("3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 4:
+                alert("4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 5:
+                alert("5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 6:
+                alert("6, 7, 8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 7:
+                alert("7, 8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 8:
+                alert("8, 9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 9:
+                alert("9, 10, 11, 12, 13, 14, 15");
+                break;
+            case 10:
+                alert("10, 11, 12, 13, 14, 15");
+                break;
+            case 11:
+                alert("11, 12, 13, 14, 15");
+                break;
+            case 12:
+                alert("12, 13, 14, 15");
+                break;
+            case 13:
+                alert("13, 14, 15");
+                break;
+            case 14:
+                alert("14, 15");
+                break;
+            case 15:
+                alert("15");
+                break;
+            default:
+                alert("Error")
+        }
+    }
+
+    // Задание 5
+    {
+        function math_things(a,b) {
+            alert ("ЗАДАНИЕ 5\n" +
+                   "a="+a+" b="+b+
+                   "\nСумма = " + (a+b) +
+                   "\nРазность = " + (a-b) +
+                   "\nПроизведение = " + (a*b) +
+                   "\nДеление = " + (a/b));
+        }
+        a=10;
+        b=5;
+        math_things(a,b)
+
+    }
+    // Задание 6
+    {
+        function mathOperation(arg1, arg2, operation) {
+            switch (operation) {
+               case '+':
+                   return arg1+arg2;
+                case '-':
+                    return arg1-arg2;
+                case '*':
+                    return arg1*arg2;
+                case '/':
+                    return arg1/arg2;
+                default:
+                    return 'Ошибка ввода данных';
+                }
+            }
+            let a = 10;
+            let b = 5;
+            let operate = '+';
+            let result=mathOperation(10, 5, operate)
+            alert(`Задание 6.
+                    a=${a} b=${b} operation=${operate}
+                    Результат: ${result}`);
+    }
+    // Задание 7 Не понял почему выводит з всего текста только false. Возможно результаты сравнений надо оборачивать в какие-то переменные.
+    {
+        alert('Задание 7 \n' +
+            'null===0 ' + null===0 +
+            '\n null>0 ' + null>0 +
+            '\n null>=0 ' + null>=0)
+
+    }
+    // Задание 8
+    {
+            function power(val, pow) {
+                if (pow != 1) {
+                    return val *= power(val, pow - 1);
+                }
+                else {
+                    return val;
+                }
+        }
+
+        let a=2;
+        some_pow=4;
+        let result = power(a,some_pow);
+        alert('Задание 8. \n val=' +a + ' pow=' + some_pow + ' Результат='+result);
+    }
+</script>
+</body>
+</html>
