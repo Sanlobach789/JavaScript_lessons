@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    'use strict';
+
+    let number = {
+        'Единицы': 0,
+        'Десятки': 0,
+        'Сотни': 0,
+        init: function (number){
+            if (number<=999 && number>=0) {
+                this.Единицы = number % 10;
+                this.Десятки = Math.floor((number % 100) / 10);
+                this.Сотни = Math.floor(number / 100);
+            }
+            else {
+                console.log('число должно быть в промежутке от 0 до 999')
+            }
+        }
+    }
+    let numb = 479;
+    number.init(numb);
+    console.log(number);
+
+</script>
+</body>
+</html>

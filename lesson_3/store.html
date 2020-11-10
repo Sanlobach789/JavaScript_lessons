@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Store functional</title>
+</head>
+<body>
+<script>
+
+    const items = [
+        {
+            name: 'Помидор',
+            price: 30
+        },
+        {
+            name: 'Огурец',
+            price: 20
+        },
+        {
+            name: 'Арбуз',
+            price: 50
+        }
+    ];
+
+    let basket = [[0, 5], [2, 4], [1, 3]];
+
+    function countBasketPrice(basket) {
+        let sum = 0;
+        for (let item of basket) {
+            const good = items[item[0]];
+            const goodPrice = good.price * item[1];
+            sum += goodPrice;
+        }
+        console.log(sum);
+    }
+
+    countBasketPrice(basket);
+
+</script>
+</body>
+</html>
