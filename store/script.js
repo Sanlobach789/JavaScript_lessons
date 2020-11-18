@@ -37,6 +37,16 @@ const catalog = {
         itemInStock.classList.add('itemInStock');
         itemInStock.innerHTML = 'В наличие: ' + item.inStock;
         this.containerElement.appendChild(itemInStock);
+
+        let addToCart = document.createElement('div');
+        addToCart.classList.add('addToCart');
+        addToCart.innerHTML = '<form class="form-inline">\n' +
+            '  <label class="sr-only" for="inlineFormInputName2">Количество</label>\n' +
+            '  <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Количество">\n' +
+            '\n' +
+            '  <button id = "btnToCart" type="submit" class="btn btn-primary mb-2">Добавить в корзину</button>\n' +
+            '</form>';
+        this.containerElement.appendChild(addToCart);
     },
 
     render() {
@@ -53,14 +63,15 @@ const catalog = {
 
 const basket = {
     items,
-    itemsCount: [[0, 30], [2, 55], [1, 100]],
+    itemsCount: [[0, 30]],
     containerElement: null,
     orderPrice: 0,
     totalCount: 0,
+
     showItem(itemFromBasket) {
         let item = this.items[itemFromBasket[0]];
         this.orderPrice += item.price * itemFromBasket[1];
-        this.totalCount ++;
+        this.totalCount++;
         let itemName = document.createElement('h3');
         itemName.classList.add('itemHeading');
         itemName.innerHTML = item.name;
@@ -73,6 +84,12 @@ const basket = {
         itemCount.classList.add('itemCount');
         itemCount.innerHTML = 'Количество: ' + itemFromBasket[1];
         this.containerElement.appendChild(itemCount);
+
+        let delFromBasket = document.createElement('h3');
+        delFromBasket.classList.add('itemHeading');
+        delFromBasket.innerHTML = '<button type="button" class="btn btn-danger">Удалить из корзины</button>';
+        this.containerElement.appendChild(delFromBasket);
+
     },
 
     render() {
@@ -85,13 +102,27 @@ const basket = {
             const emptyBasket = document.createElement('h3');
             emptyBasket.innerHTML = 'Корзина пуста';
             this.containerElement.appendChild(emptyBasket);
-        };
-        for (let order of this.itemsCount){
+        }
+        ;
+        for (let order of this.itemsCount) {
             this.showItem(order);
         }
         const total = document.createElement('p');
         total.innerHTML = 'В корзине: ' + this.totalCount + ' товаров на сумму ' + this.orderPrice + ' рублей';
         this.containerElement.appendChild(total);
+    },
+
+    containerClickHandler(event) {
+        if (event.target.id === 'btnToCart') {
+
+            this.addToBasket();
+        }
+        ;
+
+    },
+
+    addToBasket(item, count) {
+
     },
 
 };
